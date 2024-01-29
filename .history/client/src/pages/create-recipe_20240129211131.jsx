@@ -1,0 +1,38 @@
+import { useState } from "react";
+export const CreateRecipe = () => {
+    name: { type: String, required: true },
+  ingredients: [{ type: String, required: true }],
+  instruction: { type: String, required: true },
+  imageUrl: { type: String, required: true },
+  cookingTime: { type: Number, required: true },
+  userOwner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+    required: true,
+  },
+  const [recipe, setRecipe] = useState({
+    name:"",
+
+  });
+
+  return (
+    <div className="create-recipe">
+      <h2>Create Recipe</h2>
+      <form>
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name" />
+        <label htmlFor="description">Description</label>
+        <textarea id="description" name="description"></textarea>
+        <label htmlFor="ingredients">Ingredients</label>
+        <button type="button">Add Ingredient</button>
+        <label htmlFor="instructions">Instructions</label>
+        <textarea id="instructions" name="instructions"></textarea>
+        <label htmlFor="imageUrl">Image URL</label>
+        <input type="text" id="imageUrl" />
+        <label htmlFor="cookingTime">Cooking times within minutes</label>
+        <input type="number" id="cookingTime" name="cookingTime" />
+        <button type="submit">Create Recipe</button>
+      </form>
+    </div>
+  );
+};
