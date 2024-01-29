@@ -25,15 +25,16 @@ recipeRouter.post("/", async (req, res) => {
 });
 
 //save
-recipeRouter.put("/", async (req, res) => {
+// Save a Recipe
+router.put("/", async (req, res) => {
+  const recipe = await RecipesModel.findById(req.body.recipeID);
+  const user = await UserModel.findById(req.body.userID);
   try {
-    const recipe = await RecipeModel.findById(req.body.recipeID);
-    const user = await UserModel.findById(req.body.userID);
     user.savedRecipes.push(recipe);
     await user.save();
-    res.json({ savedRecipes: user.savedRecipes });
+    res.status(201).json({ savedRecipes: user.savedRecipes });
   } catch (err) {
-    res.json(err);
+    res.status(500).json(err);
   }
 });
 

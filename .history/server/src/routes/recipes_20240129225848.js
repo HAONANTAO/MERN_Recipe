@@ -38,26 +38,30 @@ recipeRouter.put("/", async (req, res) => {
 });
 
 //展示收藏的菜单
-recipeRouter.get("/saveRecipes/ids/:userID", async (req, res) => {
+// Get id of saved recipes
+recipeRouter.get("/savedRecipes/ids/:userId", async (req, res) => {
   try {
-    const user = await UserModel.findById(req.params.userID);
-    res.json({ savedRecipes: user?.savedRecipes });
+    const user = await UserModel.findById(req.params.userId);
+    res.status(201).json({ savedRecipes: user?.savedRecipes });
   } catch (err) {
-    res.json(err);
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
-recipeRouter.get("/saveRecipes/:userID", async (req, res) => {
+// Get saved recipes
+recipeRouter.get("/savedRecipes/:userId", async (req, res) => {
   try {
-    const user = await UserModel.findById(req.params.userID);
-    const savedRecipes = await RecipeModel.find({
+    const user = await UserModel.findById(req.params.userId);
+    const savedRecipes = await RecipesModel.find({
       _id: { $in: user.savedRecipes },
     });
 
-    res.json({ savedRecipes: savedRecipes });
+    console.log(savedRecipes);
+    res.status(201).json({ savedRecipes });
   } catch (err) {
-    res.json(err);
+    console.log(err);
+    res.status(500).json(err);
   }
 });
-
 export { recipeRouter };
