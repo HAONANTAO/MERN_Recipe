@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import { userRouter } from "./routes/users.js";
-import { recipeRouter } from "./routes/recipes.js";
+import {recipe}
 import bodyParser from "body-parser";
 
 const app = express();
@@ -17,7 +17,6 @@ app.use(cors());
 //user路由的进去路径
 app.use("/auth", userRouter);
 
-app.use("/recipes", recipeRouter);
 //链接数据库
 mongoose.connect(
   "mongodb+srv://Aaron:Aaron1314@recipe.fndmu0c.mongodb.net/recipe?retryWrites=true&w=majority",
