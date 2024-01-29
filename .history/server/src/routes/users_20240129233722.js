@@ -69,7 +69,6 @@ export const verifyToken = (req, res, next) => {
       if (err) {
         return res.sendStatus(403);
       }
-      //通过就直接下一步next
       next();
     });
   } else {

@@ -60,8 +60,6 @@ userRouter.post("/login", async (req, res) => {
 });
 export { userRouter };
 
-//中间件
-//这段代码是用来验证用户的身份令牌（token）的。在客户端向服务器发送请求//时，可以在请求头中包含一个身份令牌
 export const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (authHeader) {
@@ -69,7 +67,6 @@ export const verifyToken = (req, res, next) => {
       if (err) {
         return res.sendStatus(403);
       }
-      //通过就直接下一步next
       next();
     });
   } else {

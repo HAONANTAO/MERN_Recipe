@@ -5,7 +5,7 @@ import { UserModel } from "../models/Users.js";
 import { verifyToken } from "../routes/users.js";
 const recipeRouter = express.Router();
 
-recipeRouter.get("/", async (req, res) => {
+recipeRouter.get("/", verifyToken, async (req, res) => {
   try {
     const response = await RecipeModel.find({});
     res.json(response);
@@ -14,7 +14,7 @@ recipeRouter.get("/", async (req, res) => {
   }
 });
 
-recipeRouter.post("/", async (req, res) => {
+recipeRouter.post("/", verifyToken,async (req, res) => {
   //结构赋值
   const recipe = new RecipeModel({ ...req.body });
   try {
@@ -26,7 +26,7 @@ recipeRouter.post("/", async (req, res) => {
 });
 
 //save
-recipeRouter.put("/", async (req, res) => {
+recipeRouter.put("/", verifyToken,async (req, res) => {
   try {
     const recipe = await RecipeModel.findById(req.body.recipeID);
     const user = await UserModel.findById(req.body.userID);

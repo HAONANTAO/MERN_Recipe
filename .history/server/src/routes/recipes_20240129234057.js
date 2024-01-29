@@ -2,10 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import { RecipeModel } from "../models/Recipes.js";
 import { UserModel } from "../models/Users.js";
-import { verifyToken } from "../routes/users.js";
 const recipeRouter = express.Router();
 
-recipeRouter.get("/", async (req, res) => {
+recipeRouter.get("/",verifyToken, async (req, res) => {
   try {
     const response = await RecipeModel.find({});
     res.json(response);
