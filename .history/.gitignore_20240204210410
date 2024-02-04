@@ -1,0 +1,14 @@
+# Ignore node_modules directory
+node_modules/
+
+
+# Ignore build output directories
+build/
+dist/
+
+# Ignore dependency files
+package-lock.json
+yarn.lock
+
+.DS_Store
+

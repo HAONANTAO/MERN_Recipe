@@ -1,0 +1,19 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore local development environment configuration files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore build output directories
+build/
+dist/
+
+# Ignore dependency files
+package-lock.json
+yarn.lock
+
+.DS_Store
+
