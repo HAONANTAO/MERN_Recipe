@@ -13,10 +13,10 @@ This Web uses **MERN** to show the knowledge to connect the Frontend--Backend-Da
 <!-- PROJECT IMAGES -->
 <br />
 
-![Uploading Screenshot 2024-02-04 at 21.10.17.png…]()
+![Uploading Screenshot 2024-02-04 at 21.10.17.png…](Web1.png)
 
 
-![Screenshot 2024-02-04 at 21.10.40](/Users/aarontao/Desktop/Screenshot 2024-02-04 at 21.10.40.png)
+![Screenshot 2024-02-04 at 21.10.40](Web2.png)
 
 
 ## Content
